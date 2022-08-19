@@ -41,7 +41,7 @@ The template can be downloaded directly in archive file format, or directly thro
 
 ## Preview
 
-<template_preview_image>
+<img height="471" alt="text-heavy-report" src="https://user-images.githubusercontent.com/15690380/185621854-1ab0e1df-ef34-4956-ad92-90d905cbc09c.png">
 
 ## Dependencies
 
