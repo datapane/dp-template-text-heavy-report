@@ -43,8 +43,8 @@ for i in range(N):
 # In[4]:
 
 
-print(f"Design variables: {solutions[0].variables}")
-print(f"Objective values: {solutions[0].objectives}")
+# print(f"Design variables: {solutions[0].variables}")
+# print(f"Objective values: {solutions[0].objectives}")
 
 
 # {{text_variables_and_objectives}}
@@ -121,8 +121,6 @@ fig = go.Figure(layout=dict(xaxis=dict(title="f1"), yaxis=dict(title="f2")))
 
 fig.add_scatter(x=solutions_df.f1, y=solutions_df.f2, mode="markers")
 
-fig.show()
-
 
 # {{plot_objective_space}}
 
@@ -177,8 +175,6 @@ for front in fronts:
         mode="markers",
         marker=dict(color=px.colors.qualitative.Plotly[front], size=10 ),    )
 
-fig.show()
-
 
 # {{plot_solutions_ranked}}
 
@@ -193,7 +189,6 @@ plot_solutions_ranked = dp.Plot(fig)
 
 fig = px.scatter(solutions_df, x="f1", y="f2", color="front_rank")
 fig.update_traces(marker=dict(size=12))
-fig
 
 
 # {{plot_solutions_ranked_px}}
