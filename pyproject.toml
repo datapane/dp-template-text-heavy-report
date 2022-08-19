@@ -7,6 +7,9 @@ authors = ["Datapane <dev@datapane.com>"]
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11.0"
 datapane = "^0.14.0"
+jupyterlab = "^3.4.5"
+Platypus-Opt = "^1.0.4"
+plotly = "^5.10.0"
 
 [tool.poetry.dev-dependencies]
 
