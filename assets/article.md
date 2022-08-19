@@ -1,5 +1,3 @@
-# Non-Dominated Sorting
-
 ## Preamble
 
 
