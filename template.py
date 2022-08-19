@@ -150,7 +150,6 @@ text_unique_fronts = dp.Text(f"{solutions_df.front_rank.nunique()}")
 
 
 fronts = sorted(solutions_df.front_rank.unique())
-print(fronts)
 
 
 # {{text_fronts}}
