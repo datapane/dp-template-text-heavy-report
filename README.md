@@ -1,43 +1,15 @@
 
-# Datapane template: <template_name>
+# Datapane template: Text-heavy report
 
 This is a Datapane template.
 
-It can be used as a starting point for creating a Datapane report that <template_description>.
-
-## 🚧 Datapane template development 🚧
-
-*This sub-section should be removed.*
-
-### The template file
-
-When Datapane downloads a template it looks for `template.py`.
-
-The template can be notebook-first, in which case we can convert a `template.ipynb` to `template.py` with the following command:
-
-`jupyter nbconvert --to script 'template.ipynb'`
-
-### Assets
-
-Materials such as images, datasets, and asset generating code, should be included in the `./assets` directory.
-
-This includes markdown files that are to be loaded into the report.
-
-### Dependencies
-
-This template may require additional third-party packages. A full list of required packages should be included in `pyproject.toml`
-
-### README and repository
-
-Datapane template repo names should begin with `dp-template-`, e.g. `dp-template-classifier-dashboard`.
-
-Update this README to include template-specific content within the `<template_*>` placeholders.
+It can be used as a starting point for creating a text-heavy Datapane report that starts off as a Jupyter Notebook.
 
 ## Download the template
 
 The template can be downloaded directly in archive file format, or directly through the Datapane package with the following command:
 
-`datapane template dp-template-<template_slug>`
+`datapane template dp-template-text-heavy-report`
 
 ## Preview
 
@@ -46,6 +18,29 @@ The template can be downloaded directly in archive file format, or directly thro
 ## Dependencies
 
 This template may require additional third-party packages. A full list of required packages can be found in `pyproject.toml`
+
+## Moving from a notebook to a Datapane report
+
+The process for moving from your article (in `ipynb` format) to a Datapane report is:
+
+1. Place your notebook in the `assets/` directory, e.g. you will find one for this template named `article.ipynb`.
+2. Within your notebook, add placeholders, e.g. `{{plot_my_visualization}}` in markdown cells where Datapane blocks should appear.
+3. Run the following commands within the `assets/` directory to extract the markdown from your notebook:
+    ```bash
+    jupyter nbconvert --clear-output article.ipynb 
+    jupyter nbconvert --to markdown article.ipynb
+    ```
+4. Copy your notebook cells into `template.ipynb`. You can delete all the markdown cells, but it's helpful to keep the ones containing the placeholders.
+5. Wherever there's a placeholder, construct your Datapane block.
+6. When constructing your Datapane report, load the `article.md` file into a `dp.Text` block, and pass in your Datapane blocks using the `.format()` method, where the keyword name matches the placeholder name. E.g.:
+    ```python
+    report = dp.Report(
+        banner_block,
+        dp.Text(file="assets/article.md").format(
+            plot_my_visualization=plot_my_visualization
+        )
+    )
+    ```
  
 ## Contributions
 
